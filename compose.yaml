@@ -1,0 +1,19 @@
+version: "2.8"
+services:
+    backend:
+        container_name: backend
+        build:
+            context: ./
+            dockerfile: dockerfile
+        ports:
+            - "8080:7237"
+        
+    mysql:
+        container_name: db
+        image: mysql:8.0
+        env_file:
+            - mysql.env
+        ports:
+            - "33060:3306"
+volumes:
+    mysql:    
